@@ -25,10 +25,9 @@ LAYERS=("PADUS3_0Designation"
         "PADUS3_0Proclamation"
         )
 
-# skipping invalid layers to save time
-for layer in "${LAYERS[@]}"; do
-    ogr2ogr -f "SQLite" -update -append "$DATABASE_PATH" "$GDB_PATH" "$layer" -nln "usgs_pad" -dsco SPATIALITE=YES -t_srs "EPSG:5070" -skipfailures
-done
+GDB_LAYER="PADUS3_0Combined_Proclamation_Marine_Fee_Designation_Easement"
+
+ogr2ogr -f "SQLite" "$DATABASE_PATH" "$GDB_PATH" "$GDB_LAYER" -nln "usgs_pad" -dsco SPATIALITE=YES -t_srs "EPSG:5070" -skipfailures
 
 echo "Data ingested into Spatialite database. Creating indexes"
 
