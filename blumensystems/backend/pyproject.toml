@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "api"
+version = "0.1.0"
+description = "USGS PAD Coverage API"
+authors = ["Matthew Tralka <matthew@tralka.xyz>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+h3 = "^3.7.6"
+geopandas = "^0.13.2"
+sqlalchemy = "^2.0.20"
+pysqlite3 = "^0.5.1"
+python-dotenv = "^1.0.0"
+fiona = "^1.9.4.post1"
+tqdm = "^4.66.1"
+fastapi = {extras = ["all"], version = "^0.101.1"}
+uvicorn = "^0.23.2"
+spatialite = "^0.0.3"
+shapely = "^2.0.1"
+geojson = "^3.0.1"
+cachetools = "^5.3.1"
+pydantic-settings = "^2.0.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+isort = "^5.12.0"
+pytest = "7.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
